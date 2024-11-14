@@ -1,4 +1,4 @@
-version: '3'
+
 services:
 
   #PHP Service
@@ -24,14 +24,14 @@ services:
       - app-network
 
   #Nginx Service
-  webserver:
+  webserver_hiadmin:
     image: nginx:alpine
     container_name: webserver_hiadmin
     restart: unless-stopped
     tty: true
     ports:
       - "8080:2019"
-      - "443:443"
+      - "8443:443"
     volumes:
       - ./:/var/www
       - ./conf/conf.d/:/etc/nginx/conf.d/default.conf
@@ -47,8 +47,8 @@ services:
     ports:
       - "3307:3306"
     environment:
-      MYSQL_DATABASE: hiadmin_prod_db
-      MYSQL_ROOT_PASSWORD: trinhdev
+      MYSQL_DATABASE: hiadmin_db
+      MYSQL_ROOT_PASSWORD: 123123123
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:

@@ -64,22 +64,8 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         //Bind Provider
-        $this->app->bind(RepositoryInterface::class, RepositoryAbstract::class);
-        $this->app->bind(PopupPrivateInterface::class, PopupPrivateRepository::class);
-        $this->app->bind(PopupManageInterface::class, PopupManageRepository::class);
-        $this->app->bind(BannerManageInterface::class, BannerManageRepository::class);
-        $this->app->bind(ResetPasswordWrongInterface::class, ResetPasswordWrongRepository::class);
-        $this->app->bind(FtelPhoneInterface::class, FtelPhoneRepository::class);
-        $this->app->bind(SectionLogInterface::class, SectionLogRepository::class);
-        $this->app->bind(DeeplinkInterface::class, DeeplinkRepository::class);
-        $this->app->bind(ScreenInterface::class, ScreenRepository::class);
-        $this->app->bind(BehaviorInterface::class, BehaviorRepository::class);
-        $this->app->bind(GetPhoneNumberInterface::class, GetPhoneNumberRepository::class);
-        $this->app->bind(RenderDeeplinkInterface::class, RenderDeeplinkRepository::class);
-        $this->app->bind(PaymentSupportInterface::class, PaymentSupportRepository::class);
+        $this->app->bind(RepositoryInterface::class, RepositoryAbstract::class);  
         $this->app->bind(SettingInterface::class, SettingRepository::class);
-        $this->app->bind(StatisticInterface::class, StatisticRepository::class);
-        $this->app->bind(TrackingInterface::class, TrackingRepository::class);
         $this->app->bind(SettingInterface::class, function () {
             return new SettingRepository(new Settings());
         });

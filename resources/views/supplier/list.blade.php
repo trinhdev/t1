@@ -20,8 +20,7 @@
              
                     <div class="form-group">
                         <label for="email">Email<small class="req text-danger">* </small></label>
-                        <input type="text" id="email" name="email"  class="form-control" placeholder="Email" >
-                    
+                        <input type="text" id="email" name="email"  class="form-control" placeholder="Email" > 
                 </div>
                 
                     <div class="form-group">

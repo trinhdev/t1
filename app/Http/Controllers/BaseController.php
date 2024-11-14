@@ -60,7 +60,7 @@ class BaseController extends Controller
 //        }
 //        $this->aclCurrentModule = $data;
 //        $menu = new \stdClass();
-
+        
         $user_permission = $this->user->getPermissionsViaRoles()->pluck('name');
         $arr_module = [];
         foreach ($user_permission as $permisstion) {

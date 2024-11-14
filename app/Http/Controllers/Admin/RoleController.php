@@ -97,6 +97,7 @@ class RoleController extends BaseController
 
     public function update(Request $request, $id)
     {
+        
         $this->validate($request, [
             'name' => [
                 'required',
@@ -104,6 +105,7 @@ class RoleController extends BaseController
             ],
             'permissions' => 'required'
         ]);
+        
         $role = Role::find($id);
         $role->name = $request->input('name');
         $role->save();

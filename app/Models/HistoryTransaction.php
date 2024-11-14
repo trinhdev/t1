@@ -12,7 +12,8 @@ class HistoryTransaction extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'phone',
-        'typr',
+        'money',
+        'type',
         'gateway',
         'payment_id',
         'txn_id',

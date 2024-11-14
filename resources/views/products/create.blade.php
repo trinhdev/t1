@@ -76,7 +76,7 @@
                                 <div class="form-group" app-field-wrapper="name">
                                     <label for="desciption" class="control-label">
                                         <small class="req text-danger">* </small>Mô tả</label>
-                                        <textarea id="desciption" name="desciption" class="form-control" cols="100" id=""></textarea>  
+                                        <textarea id="desciption" name="desciption" class="form-control tinymce-manual" cols="100" id=""></textarea>  
                                 </div>
                                 <div class="form-group" id="path_1">
                                     <label class="control-label"><small class="req text-danger">* </small>Ảnh</label>

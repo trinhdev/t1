@@ -74,12 +74,10 @@ class CustomersController extends Controller
 
     public function sendOtp(Request $request)
     {
-        try {
-            
+        try {     
         $request->validate([
             'email' => 'required|email|exists:customers,email',
         ]);
-
         $otp = rand(1000, 9999); // Tạo mã OTP 6 chữ số
         
         // Lưu OTP vào bảng `customers`
@@ -98,9 +96,6 @@ class CustomersController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Không thể gửi email: ' . $e->getMessage()], 500);
         }
-        
-
-        // return response()->json(['success' => 'OTP đã được gửi đến email của bạn']);
     }
 
 
@@ -165,13 +160,13 @@ class CustomersController extends Controller
     public function register(Request $request)
 {
     try {
-        
         // Xác thực yêu cầu
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:customers',
             'password' => 'required|string|min:8', // Thêm quy tắc xác thực cho mật khẩu xác nhận
         ]);
+        
         // Tạo người dùng mới
         $customers = Customers::create([
             'name' => $request->name,
@@ -190,21 +185,21 @@ class CustomersController extends Controller
         ], 201);
 
     } catch (ValidationException $e) {
-        // Xử lý lỗi xác thực
+        // Xử lý lỗi xác thực và trả về chi tiết lỗi cho từng trường
         return response()->json([
             'success' => false,
             'message' => 'Có lỗi xảy ra khi xác thực.',
-            'errors' => $e->validator->errors(), // Trả về lỗi xác thực
+            'errors' => $e->errors(), // Trả về lỗi xác thực chi tiết cho từng trường
         ], 422);
-    }catch (QueryException $e) {
-
+    } catch (QueryException $e) {
         return response()->json([
             'success' => false,
-            'message' => 'Đã xảy ra lỗi không muốn vui long kiểm tra lại',
+            'message' => 'Đã xảy ra lỗi không mong muốn, vui lòng kiểm tra lại.',
             'error' => $e->getMessage(),
         ], 500);
     }
 }
+
 
 
 
@@ -247,6 +242,34 @@ public function logout(Request $request)
         'success' => true,
         'message' => 'Đăng xuất thành công!',
     ], 200);
+}
+
+public function getInfo(Request $request)
+{
+    // Xác thực email trong yêu cầu
+    $request->validate([
+        'email' => 'required|email|exists:customers,email', // email phải tồn tại trong bảng customers
+    ]);
+
+    // Lấy email từ yêu cầu
+    $email = $request->email;
+
+    // Tìm khách hàng dựa trên email
+    $customer = Customers::where('email', $email)->first();
+
+    // Kiểm tra nếu không tìm thấy khách hàng
+    if (!$customer) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Không có khách hàng này'
+        ], 404);
+    }
+
+    // Trả về thông tin khách hàng
+    return response()->json([
+        'success' => true,
+        'customers' => $customer
+    ]);
 }
 
 public function update(Request $request)
@@ -295,7 +318,7 @@ public function update(Request $request)
         return response()->json([
             'success' => false,
             'message' => 'Có lỗi xảy ra khi xác thực.',
-            'errors' => $e->validator->errors(), // Trả về lỗi xác thực
+            'errors' => $e->errors(), // Trả về lỗi xác thực
         ], 422);
     }catch (Exception $e) {
         DB::rollBack();

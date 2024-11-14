@@ -54,5 +54,9 @@ class Customers extends Authenticatable
     {
         return $date->format('H:i:s d-m-Y');
     }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
 }

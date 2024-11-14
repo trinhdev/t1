@@ -19,12 +19,12 @@ use Yajra\DataTables\DataTables;
 class UserController extends BaseController
 {
     use DataTrait;
-    public $model;
+    // public $model;
     public function __construct()
     {
         parent::__construct();
         $this->title = 'List User';
-        $this->model = new User();
+        // $this->model = new User();
     }
     /**
      * Display a listing of the resource.
@@ -110,10 +110,10 @@ class UserController extends BaseController
         return redirect()->intended('/');
     }
 
-   public function destroy(Request $request)
-   {
-       $this->deleteById($this->model, $request->id);
-       $this->addToLog(request());
-       return response()->json(['message' => 'Delete Successfully!']);
-   }
+//    public function destroy(Request $request)
+//    {
+//        $this->deleteById($this->model, $request->id);
+//        $this->addToLog(request());
+//        return response()->json(['message' => 'Delete Successfully!']);
+//    }
 }

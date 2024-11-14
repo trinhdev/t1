@@ -99,37 +99,37 @@
             </div>
         </div>
         <script>
-            $(function () {
-                $('#role').trigger('change');
-                appValidateForm($('.staff-form'), {
-                    firstname: 'required',
-                    lastname: 'required',
-                    username: 'required',
-                    password: {
-                        required: {
-                            depends: function (element) {
-                                return ($('input[name="isedit"]').length == 0) ? true : false
-                            }
-                        }
-                    },
-                    email: {
-                        required: true,
-                        email: true,
-                        remote: {
-                            url: admin_url + "misc/staff_email_exists",
-                            type: 'post',
-                            data: {
-                                email: function () {
-                                    return $('input[name="email"]').val();
-                                },
-                                memberid: function () {
-                                    return $('input[name="memberid"]').val();
-                                }
-                            }
-                        }
-                    }
-                });
-            });
+            // $(function () {
+            //     $('#role').trigger('change');
+            //     appValidateForm($('.staff-form'), {
+            //         firstname: 'required',
+            //         lastname: 'required',
+            //         username: 'required',
+            //         password: {
+            //             required: {
+            //                 depends: function (element) {
+            //                     return ($('input[name="isedit"]').length == 0) ? true : false
+            //                 }
+            //             }
+            //         },
+            //         email: {
+            //             required: true,
+            //             email: true,
+            //             remote: {
+            //                 url: admin_url + "misc/staff_email_exists",
+            //                 type: 'post',
+            //                 data: {
+            //                     email: function () {
+            //                         return $('input[name="email"]').val();
+            //                     },
+            //                     memberid: function () {
+            //                         return $('input[name="memberid"]').val();
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     });
+            // });
         </script>
     </div>
 @endsection

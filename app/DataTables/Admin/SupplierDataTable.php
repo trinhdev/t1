@@ -52,6 +52,9 @@ class SupplierDataTable extends BuilderDatatables
             'name' => [
                 'title' => 'Tên',
             ],
+            'supplier_code' => [
+                'title' => 'Mã nhà cung cấp',
+            ],
             'email' => [
                 'title' => 'Email',
             ],

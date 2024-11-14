@@ -85,7 +85,7 @@ class ProductsController extends BaseController
                 ]);
             }
         }
-        return redirect()->route('products.index')->with('success', 'Sản phẩm đã được thêm thành công!');
+        return redirect()->route('products.index')->with(['status'=>'success', 'html' => 'Thành công']);
     }
 
     /**
