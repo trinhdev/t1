@@ -1,4 +1,4 @@
-@extends('layouts.empty')
+@extends('layoutv2.empty')
 @section('title','Đăng nhập')
 @section('content')
 

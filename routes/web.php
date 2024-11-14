@@ -33,7 +33,7 @@ use App\Http\Controllers\Admin\StockTransactionController;
 
 
 Auth::routes();
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth'], 'prefix'=>'admin'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::prefix('home')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');

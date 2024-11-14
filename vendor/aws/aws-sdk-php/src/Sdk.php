@@ -88,6 +88,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionBedrockAgentRuntime(array $args = [])
  * @method \Aws\BedrockRuntime\BedrockRuntimeClient createBedrockRuntime(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionBedrockRuntime(array $args = [])
+ * @method \Aws\Billing\BillingClient createBilling(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionBilling(array $args = [])
  * @method \Aws\BillingConductor\BillingConductorClient createBillingConductor(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionBillingConductor(array $args = [])
  * @method \Aws\Braket\BraketClient createBraket(array $args = [])
@@ -306,6 +308,12 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionFreeTier(array $args = [])
  * @method \Aws\GameLift\GameLiftClient createGameLift(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionGameLift(array $args = [])
+ * @method \Aws\GeoMaps\GeoMapsClient createGeoMaps(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionGeoMaps(array $args = [])
+ * @method \Aws\GeoPlaces\GeoPlacesClient createGeoPlaces(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionGeoPlaces(array $args = [])
+ * @method \Aws\GeoRoutes\GeoRoutesClient createGeoRoutes(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionGeoRoutes(array $args = [])
  * @method \Aws\Glacier\GlacierClient createGlacier(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionGlacier(array $args = [])
  * @method \Aws\GlobalAccelerator\GlobalAcceleratorClient createGlobalAccelerator(array $args = [])
@@ -779,7 +787,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.324.11';
+    const VERSION = '3.326.0';
 
     /** @var array Arguments for creating clients */
     private $args;

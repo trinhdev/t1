@@ -7,10 +7,8 @@
                     <div class="clearfix"></div>
                     <div class="panel_s tw-mt-2 sm:tw-mt-4">
                         <div class="panel-body">
-                            @include('chart.revenueChart')
                         </div>
                         <div class="panel-body">
-                            @include('chart.paymentErrorUserSystemEcomChart')
                         </div>
                     </div>
                 </div>
@@ -24,7 +22,6 @@
                                 <table id="error-payment-table" class="table table-hover table-striped dataTable no-footer" style="width: 100%">
                                 </table>
                             </div>
-                            @include('chart.paymentErrorUserSystemFtelChart')
                         </div>
                     </div>
                 </div>
@@ -33,7 +30,6 @@
                     <div class="clearfix"></div>
                     <div class="panel_s tw-mt-2 sm:tw-mt-4">
                         <div class="panel-body">
-                            @include('chart.paymentErrorDetailEcomChart')
                         </div>
                     </div>
                 </div>
@@ -42,7 +38,6 @@
                     <div class="clearfix"></div>
                     <div class="panel_s tw-mt-2 sm:tw-mt-4">
                         <div class="panel-body">
-                            @include('chart.paymentErrorDetailFtelChart')
                         </div>
                     </div>
                 </div>
@@ -51,7 +46,6 @@
                     <div class="clearfix"></div>
                     <div class="panel_s tw-mt-2 sm:tw-mt-4">
                         <div class="panel-body">
-                            @include('chart.paymentErrorDetailSystemEcomChart')
                         </div>
                     </div>
                 </div>
@@ -60,7 +54,6 @@
                     <div class="clearfix"></div>
                     <div class="panel_s tw-mt-2 sm:tw-mt-4">
                         <div class="panel-body">
-                            @include('chart.paymentErrorDetailSystemFtelChart')
                         </div>
                     </div>
                 </div>

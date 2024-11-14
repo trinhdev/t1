@@ -37,6 +37,7 @@
     @include('template.modal', ['id' => 'showImportView_Modal', 'title'=>'Thêm Sản Phẩm', 'form'=>'products.import_view'])
 @endsection
 @push('script')
+
     {{ $dataTable->scripts() }}
     <script>
         function deleteProducts(data) {

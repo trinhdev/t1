@@ -37,6 +37,8 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="theme-color" content="#ffffff">
     <script>
+
+
         const URL_STATIC = "{{env('URL_STATIC')}}";
         var site_url = "{{ url('') }}";
         var admin_url = "{{ url('') }}";

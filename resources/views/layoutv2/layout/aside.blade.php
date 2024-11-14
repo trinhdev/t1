@@ -27,7 +27,7 @@
                         <ul class="nav nav-second-level collapse" aria-expanded="false">
                             @foreach($group->children as $module)
                                 <li class="sub-menu-item-{{ $module->module_name}}">
-                                    <a href="{{ url($module->uri) }}">
+                                    <a href="{{ url('admin/' . $module->uri) }}" data-pjax>
                                         <i class="fa {{ $module->icon}} menu-icon"></i>
                                         <span class="sub-menu-text">{{ $module->module_name}}</span>
                                     </a>
